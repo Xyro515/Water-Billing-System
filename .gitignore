@@ -5,6 +5,7 @@ node_modules/
 
 # Expo
 .expo/
+.expo-export-verify/
 dist/
 web-build/
 expo-env.d.ts
@@ -39,3 +40,18 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+.env
+.env.test
+
+# Windows virtual-printer output
+/tools/virtual-printer/output/
+# Real Phase 6 meter photographs and completed acceptance evidence stay local.
+tests/fixtures/meter-photos/manifest.json
+tests/fixtures/meter-photos/*.jpg
+tests/fixtures/meter-photos/*.jpeg
+tests/fixtures/meter-photos/*.png
+
+# Completed Phase 7 physical-device evidence stays local.
+tests/fixtures/phase7/manifest.json
+tests/fixtures/phase7/evidence/

@@ -1,15 +1,18 @@
 {
   "expo": {
-    "name": "water-meter-billing",
-    "slug": "water-meter-billing",
+    "name": "NMMPC",
+    "slug": "nmmpc",
+    "scheme": "nmmpc",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nmmpc.watermeterbilling"
     },
     "android": {
+      "package": "com.nmmpc.watermeterbilling",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -20,6 +23,33 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-sqlite",
+      "expo-router",
+      "expo-status-bar",
+      "@react-native-vector-icons/ionicons",
+      "expo-font",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow NMMPC to scan water meter QR codes.",
+          "recordAudioAndroid": false,
+          "barcodeScannerEnabled": true
+        }
+      ],
+      [
+        "react-native-permissions",
+        {
+          "iosPermissions": [
+            "Bluetooth"
+          ]
+        }
+      ],
+      "./plugins/with-bluetooth-printer"
+    ],
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }

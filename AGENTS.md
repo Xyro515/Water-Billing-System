@@ -39,3 +39,14 @@ Docs: https://docs.expo.dev/eas/index.md
 - If `ios/` and `android/` directories do not exist, they are generated (Continuous Native Generation). Never create or edit them by hand — configure native behavior in `app.json` and config plugins.
 - Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `npx expo run:ios|android` locally, or `eas build --profile development`.
 - Prefer recommended Expo modules over third-party libraries, and check your available skills before adding dependencies. Docs: https://docs.expo.dev/versions/latest/index.md
+
+## Development checklist automation
+
+`DEVELOPMENT_CHECKLIST.md` is the living source of truth for project progress. After every development task:
+
+1. Update the checklist in the same change without waiting for a separate request.
+2. Check an item with `[x]` only when its implementation is present and the relevant automated validation has passed.
+3. Leave physical-device, hardware, Figma-review, account setup, deployment, and user-acceptance items unchecked until there is direct evidence they were completed.
+4. Add newly discovered required work to the appropriate phase instead of silently omitting it.
+5. If work belongs to a later phase, label it as deferred and keep it unchecked.
+6. Report the checklist items changed in the final handoff.

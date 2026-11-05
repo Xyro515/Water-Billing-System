@@ -1,0 +1,9 @@
+[
+  { "scenario": "airplane_mode_reading", "passed": false, "testedAt": "", "device": "", "evidence": "", "notes": "" },
+  { "scenario": "restart_persistence", "passed": false, "testedAt": "", "device": "", "evidence": "", "notes": "" },
+  { "scenario": "reconnect_synchronization", "passed": false, "testedAt": "", "device": "", "evidence": "", "notes": "" },
+  { "scenario": "duplicate_retry_prevention", "passed": false, "testedAt": "", "device": "", "evidence": "", "notes": "" },
+  { "scenario": "conflict_resolution", "passed": false, "testedAt": "", "device": "", "evidence": "", "notes": "" },
+  { "scenario": "forced_termination_recovery", "passed": false, "testedAt": "", "device": "", "evidence": "", "notes": "" },
+  { "scenario": "partial_photo_upload_recovery", "passed": false, "testedAt": "", "device": "", "evidence": "", "notes": "" }
+]

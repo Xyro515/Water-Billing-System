@@ -1,0 +1,14 @@
+[
+  {
+    "id": "replace-with-unique-photo-id",
+    "image": "replace-with-relative-image-name.jpg",
+    "meterModel": "replace-with-manufacturer-and-model",
+    "condition": "bright_sunlight",
+    "expectedWholeReading": 0,
+    "expectedFractionalDigits": "",
+    "ocrWholeReading": null,
+    "ocrFractionalDigits": null,
+    "employeeConfirmedReading": null,
+    "manualCorrectionVerified": false
+  }
+]
