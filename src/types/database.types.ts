@@ -36,7 +36,7 @@ export type Database = {
     Tables: {
       profiles: TableDefinition<ProfileRow, 'id' | 'full_name'>;
       customers: TableDefinition<CustomerRow, 'account_number' | 'full_name' | 'service_address'>;
-      meters: TableDefinition<MeterRow, 'meter_number'>;
+      meters: TableDefinition<MeterRow, never>;
       meter_assignments: TableDefinition<MeterAssignmentRow, 'customer_id' | 'meter_id'>;
       meter_readings: TableDefinition<MeterReadingRow, 'customer_id' | 'meter_id' | 'employee_id' | 'previous_reading' | 'current_reading' | 'consumption' | 'billing_period_start' | 'billing_period_end'>;
       tariffs: TableDefinition<TariffRow, 'code' | 'name' | 'version' | 'effective_from'>;
@@ -52,7 +52,7 @@ export type Database = {
     Functions: {
       handle_new_user: { Args: Record<PropertyKey, never>; Returns: unknown };
       set_updated_at: { Args: Record<PropertyKey, never>; Returns: unknown };
-      replace_customer_meter: { Args: { target_customer_id: string; new_meter_number: string; new_serial_number?: string | null; new_manufacturer?: string | null; new_model?: string | null; replacement_date?: string; new_initial_reading?: number }; Returns: string };
+      replace_customer_meter: { Args: { target_customer_id: string; new_meter_number?: string | null; new_serial_number?: string | null; new_manufacturer?: string | null; new_model?: string | null; replacement_date?: string; new_initial_reading?: number }; Returns: string };
       create_invoice_atomic: { Args: { p_customer_id: string; p_meter_reading_id: string; p_tariff_id: string; p_billing_period_start: string; p_billing_period_end: string; p_due_date: string; p_subtotal: number; p_fixed_charges: number; p_discounts: number; p_taxes: number; p_penalties: number; p_previous_balance: number; p_total_amount: number; p_tariff_snapshot: Json; p_client_operation_id: string; p_items: Json }; Returns: InvoiceRow };
       begin_invoice_print: { Args: { p_invoice_id: string; p_is_reprint?: boolean; p_reason?: string | null; p_metadata?: Json }; Returns: number };
       complete_invoice_print: { Args: { p_invoice_id: string; p_attempt_id: number; p_succeeded: boolean; p_error?: string | null }; Returns: undefined };

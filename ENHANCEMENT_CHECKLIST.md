@@ -23,12 +23,12 @@ This checklist tracks improvements and enhancements for the NMMPC water-meter bi
 - [x] Add search, filters, sorting, and pagination to customers.
 - [x] Add search, event filters, date ranges, and pagination to audit logs.
 - [x] Show the invoices and amounts covered by each payment in payment details.
-- [ ] Add printable payment receipts.
-- [ ] Preserve controlled invoice-reprint reasons and expose reprint history to administrators.
-- [ ] Add clear confirmation dialogs for reversals, disabling accounts, tariff changes, and other sensitive actions.
-- [ ] Add dashboard alerts for overdue accounts, failed imports, synchronization failures, and unusual payment activity.
-- [ ] Improve empty, loading, validation, and database-error states.
-- [ ] Improve responsive table behavior on tablets and narrow screens.
+- [x] Add printable payment receipts.
+- [x] Preserve controlled invoice-reprint reasons and expose reprint history to administrators.
+- [x] Add clear confirmation dialogs for disabling accounts, tariff approvals, invoice status changes, and any future reversal action.
+- [x] Add dashboard alerts for overdue accounts, failed imports, synchronization failures, and unusual payment activity.
+- [x] Improve empty, loading, validation, and database-error states.
+- [x] Improve responsive table behavior on tablets and narrow screens.
 
 ## Priority 3 — Mobile field workflow
 
@@ -90,6 +90,7 @@ This checklist tracks improvements and enhancements for the NMMPC water-meter bi
 - [x] Separate payments applied to previous arrears from payments applied to the current bill.
 - [x] Limit the administrator overview to the 10 highest remaining customer balances.
 - [x] Use the full organization name: New Murcia Multipurpose Cooperative.
+- [x] Generate stable meter asset numbers automatically while displaying customer names only as assignment context.
 
 ## Completion rule
 

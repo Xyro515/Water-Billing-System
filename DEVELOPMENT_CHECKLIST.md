@@ -349,15 +349,19 @@ Hosted acceptance run passed on November 2, 2026. The runner verifies explicit s
 ### Meter management
 
 - [x] Load assigned meter details
+- [x] Generate stable `NMMPC-MTR-######` meter numbers independently of customer names
+- [x] Show the currently assigned customer name and account number beside each permanent meter asset
 - [x] Store meter serial and identification numbers
 - [x] Store installation and replacement dates
 - [x] Show active and inactive meters
 - [x] Add meter assignment history
 - [x] Add meter replacement workflow
+- [x] Generate the replacement meter number automatically inside the atomic replacement transaction
 - [x] Add QR-code generation for meter IDs
 - [x] Add QR-code scanning
 - [x] Confirm scanned QR code matches customer assignment
 - [x] Show complete reading history
+- [x] Deploy `20261106000000_auto_meter_numbers.sql` to the hosted Supabase production project
 
 ### Phase 3 acceptance tests
 
@@ -688,6 +692,12 @@ Implementation status: **Dashboard feature implementation complete on November 4
 - [x] Add an audit-log viewer with readable event context, metadata, before/after changes, and raw-data fallback
 - [x] Add consistent search, filters, sorting, date ranges, and pagination to customers, invoices, payments, and audit logs
 - [x] Show each payment's invoice allocation amounts in the collection ledger
+- [x] Add printable payment receipts with customer, reference, collector, and invoice-allocation details
+- [x] Expose controlled original-print and reprint reasons, actors, timestamps, and outcomes in invoice management
+- [x] Add reusable confirmation dialogs to customer, employee, invoice, and tariff-sensitive actions
+- [x] Add operational dashboard alerts for overdue accounts, import rejections, synchronization failures, and suspicious payment activity
+- [x] Add dashboard loading skeletons, recoverable error boundaries, specific filtered empty states, and clearer database-error notices
+- [x] Improve narrow-screen and tablet table scrolling, spacing, and filter controls
 - [x] Add billing-period reports
 - [x] Add export to CSV or spreadsheet
 - [x] Add Excel and CSV import for customers, membership classification, meters, and opening readings

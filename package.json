@@ -59,6 +59,7 @@
     "arrears:test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/arrears.test.ts",
     "receipt:test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/receipt.test.ts tests/virtual-printer.test.mjs",
     "meter-scan:test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/meter-scan.test.ts",
+    "meter-number:test": "node --test tests/meter-number.test.mjs",
     "session:test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/session-errors.test.ts",
     "workflow:test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/operation-id.test.ts",
     "phase6:test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/meter-recognition.test.ts tests/photo-quality.test.ts",
