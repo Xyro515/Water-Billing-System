@@ -23,12 +23,12 @@ Because arrears is calculated from prior invoice balances, the previous balance 
 2. Return an existing payment when the operation ID is retried.
 3. Lock the customer's invoices.
 4. Reject zero payments, customers without debt, and overpayments.
-5. Create the payment.
+5. Create the payment with an automatic unique reference such as `NMMPC-PAY-20261105-00000001` when no external reference is supplied.
 6. Allocate it to open invoices ordered by due date, billing period, and creation time.
 7. Update covered invoice statuses.
 8. Append an audit event.
 
-The admin dashboard now accepts a customer-level payment rather than requiring the administrator to manually choose one invoice.
+The admin dashboard now accepts a customer-level payment rather than requiring the administrator to manually choose one invoice. Its collection form no longer asks the operator to invent a reference; the saved reference is generated atomically by the database and displayed in the collection ledger.
 
 The admin overview also shows an allocation-aware customer balance table with:
 
@@ -50,7 +50,7 @@ If the arrears query cannot be confirmed, billing stops instead of silently issu
 
 ## Deployment
 
-The migration is deployed. The commands below are retained for future environments.
+The arrears and automatic-reference migrations are deployed to the hosted Supabase project. Blank historical payment references were backfilled during deployment, and new references are generated atomically by the payment RPC.
 
 Apply the migration before deploying either updated client:
 
@@ -58,7 +58,10 @@ Apply the migration before deploying either updated client:
 npx supabase db push
 ```
 
-Migration: `supabase/migrations/20261105000000_arrears_management.sql`
+Migrations:
+
+- `supabase/migrations/20261105000000_arrears_management.sql` — deployed
+- `supabase/migrations/20261105010000_auto_payment_references.sql` — deployed
 
 After deployment, regenerate mobile database types and run hosted acceptance tests with two administrators attempting payments against the same customer to verify row locking.
 
@@ -66,6 +69,8 @@ After deployment, regenerate mobile database types and run hosted acceptance tes
 
 - Mobile TypeScript and Expo lint passed.
 - Admin TypeScript and ESLint passed.
+- Admin production build passed with the automatic-reference collection form.
+- The linked Supabase production dry run recognized only the automatic-reference migration as pending.
 - Four arrears allocation tests passed.
 - Fourteen billing-engine tests passed.
 - Existing admin utility tests passed.

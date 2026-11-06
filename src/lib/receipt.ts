@@ -34,10 +34,11 @@ export function buildWaterBillReceipt(data: WaterBillReceipt, paperWidth: Receip
   const visibleCharges = data.charges.filter((charge) => !charge.description.toLowerCase().includes('previous unpaid balance'));
   const lines: ReceiptLine[] = [
     { type: 'text', content: 'NMMPC', align: 'center', size: 'large', bold: true },
+    { type: 'text', content: 'NEW MURCIA MULTIPURPOSE COOPERATIVE', align: 'center', bold: true },
     { type: 'text', content: 'WATER SERVICE INVOICE', align: 'center', bold: true },
     ...(data.provisional ? [{ type: 'text' as const, content: 'PROVISIONAL - NOT A FINAL BILL', align: 'center' as const, bold: true }] : data.preview ? [{ type: 'text' as const, content: 'PREVIEW - NOT A FINAL BILL', align: 'center' as const, bold: true }] : []),
     { type: 'divider' },
-    { type: 'text', preText: 'Invoice:', content: data.invoiceNumber },
+    { type: 'text', preText: 'Invoice reference:', content: data.invoiceNumber, bold: true },
     { type: 'text', preText: 'Issued:', content: data.issuedAt },
     { type: 'text', preText: 'Period:', content: data.billingPeriod },
     { type: 'text', preText: 'Due:', content: data.dueDate, bold: true },

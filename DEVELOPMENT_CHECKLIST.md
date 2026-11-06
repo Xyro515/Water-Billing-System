@@ -1,6 +1,6 @@
 # NMMPC — Complete Development Checklist
 
-Last updated: November 5, 2026
+Last updated: November 6, 2026
 
 Use this file as the project’s living checklist. Check an item only after it has been implemented and tested. Items marked as complete reflect the work currently present in this repository.
 
@@ -47,6 +47,7 @@ Use this file as the project’s living checklist. Check an item only after it h
 - [x] Add development-client startup script
 - [x] Align installed package versions with Expo SDK 58 using `npx.cmd expo install --fix`
 - [x] Add a unified local run guide for the mobile app and admin dashboard at `Project setup/RUN.md`
+- [x] Add the prioritized improvement plan at `ENHANCEMENT_CHECKLIST.md`
 
 ### Validation
 
@@ -92,7 +93,7 @@ Implementation status: **Complete.** Android, iOS, and web production bundles pa
 
 - [x] Create the NMMPC color palette
 - [x] Create spacing and corner-radius tokens
-- [x] Create the NMMPC brand component
+- [x] Create the NMMPC brand component with the correct New Murcia Multipurpose Cooperative name
 - [x] Create reusable screen headers
 - [x] Create reusable cards
 - [x] Create primary and secondary buttons
@@ -202,6 +203,7 @@ Implementation status: **Complete.** Android, iOS, and web production bundles pa
 - [x] Show billing period and due date
 - [x] Clearly label unsaved previews as non-final bills
 - [x] Add receipt printing workflow with clearly labeled preview output and audited saved-invoice printing
+- [x] Show the invoice reference on the invoice screen and printed receipt
 - [x] Use the production billing engine
 - [x] Generate unique invoice numbers when the invoice is persisted
 - [x] Freeze applied tariff details for auditing
@@ -505,7 +507,7 @@ Implementation status: **Complete in code and automated validation.** Four recei
 - [x] Add test-print function
 - [x] Add print progress and completion feedback
 - [x] Add retry handling
-- [x] Add controlled reprinting
+- [x] Add controlled reprinting with one-tap preset reasons and custom fallback
 - [x] Record every reprint attempt and result in append-only audit logs
 - [x] Prevent accidental duplicate printing in local UI and backend authorization
 - [x] Clearly label sample preview receipts as non-final
@@ -645,10 +647,15 @@ Phase 7 acceptance status: **Physical-device evidence pending (audited November 
 - [x] Reject zero payments and overpayments when no explicit credit policy exists
 - [x] Integrate live previous arrears into mobile invoice calculation and receipts
 - [x] Show allocation-aware customer balances in mobile customer details
-- [x] Update the admin collection form for customer-level full and partial payments
+- [x] Update the admin collection form for customer-level full and partial payments with a non-editable database-generated reference status
+- [x] Add concurrency-safe, human-readable automatic payment reference generation with backfill for blank historical references
 - [x] Show allocation-aware current bill, previous arrears, current payment, remaining balance, and status on the admin overview
+- [x] Separate payments allocated to older arrears from payments allocated to the current bill on the admin overview
+- [x] Limit the admin overview customer-balance table to the 10 highest remaining balances
+- [x] Add a View all balances toggle below the admin overview Top 10 table
 - [x] Calculate the admin overview outstanding total from original invoice charges minus completed allocations
 - [x] Deploy `20261105000000_arrears_management.sql` to the hosted Supabase project
+- [x] Deploy `20261105010000_auto_payment_references.sql` to the hosted Supabase project
 - [ ] Convert every admin report and export to read the allocation ledger (deferred until the migration is deployed)
 - [ ] Add an audited payment-reversal RPC that reverses allocations without deleting financial history
 - [ ] Add confirmed offline payment replay; offline payment capture remains disabled until server allocation succeeds
@@ -678,7 +685,9 @@ Implementation status: **Dashboard feature implementation complete on November 4
 - [x] Add unpaid-account reports
 - [x] Add employee management
 - [x] Add route and assignment management
-- [x] Add audit-log viewer
+- [x] Add an audit-log viewer with readable event context, metadata, before/after changes, and raw-data fallback
+- [x] Add consistent search, filters, sorting, date ranges, and pagination to customers, invoices, payments, and audit logs
+- [x] Show each payment's invoice allocation amounts in the collection ledger
 - [x] Add billing-period reports
 - [x] Add export to CSV or spreadsheet
 - [x] Add Excel and CSV import for customers, membership classification, meters, and opening readings

@@ -14,7 +14,7 @@ for (const width of [58, 80] as const) {
     const receipt = buildWaterBillReceipt(invoice, width);
     assert.equal(receipt.paperWidth, width);
     const serialized = JSON.stringify(receipt.lines);
-    for (const value of ['NMMPC', invoice.invoiceNumber, invoice.customerName, invoice.accountNumber, invoice.serviceAddress, invoice.meterNumber, 'Previous:', 'Current:', 'Consumption:', 'Water usage', 'Fixed service charge', 'Current bill:', 'Previous balance:', 'PHP 100.00', 'AMOUNT DUE', invoice.dueDate]) assert.match(serialized, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    for (const value of ['NMMPC', 'NEW MURCIA MULTIPURPOSE COOPERATIVE', 'Invoice reference:', invoice.invoiceNumber, invoice.customerName, invoice.accountNumber, invoice.serviceAddress, invoice.meterNumber, 'Previous:', 'Current:', 'Consumption:', 'Water usage', 'Fixed service charge', 'Current bill:', 'Previous balance:', 'PHP 100.00', 'AMOUNT DUE', invoice.dueDate]) assert.match(serialized, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
     assert.equal(receipt.lines.at(-1)?.type, 'cut');
   });
 }
