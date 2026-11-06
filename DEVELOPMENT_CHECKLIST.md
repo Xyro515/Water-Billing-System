@@ -350,6 +350,7 @@ Hosted acceptance run passed on November 2, 2026. The runner verifies explicit s
 
 - [x] Load assigned meter details
 - [x] Generate stable `NMMPC-MTR-######` meter numbers independently of customer names
+- [x] Derive each customer's first-meter number from `ACC-####` while keeping replacement-meter identities independent
 - [x] Show the currently assigned customer name and account number beside each permanent meter asset
 - [x] Store meter serial and identification numbers
 - [x] Store installation and replacement dates
@@ -362,6 +363,7 @@ Hosted acceptance run passed on November 2, 2026. The runner verifies explicit s
 - [x] Confirm scanned QR code matches customer assignment
 - [x] Show complete reading history
 - [x] Deploy `20261106000000_auto_meter_numbers.sql` to the hosted Supabase production project
+- [ ] Deploy `20261106010000_account_based_first_meter_numbers.sql` and audit the production first-meter backfill
 
 ### Phase 3 acceptance tests
 
